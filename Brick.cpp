@@ -34,6 +34,10 @@ short Brick::getHeight() {
 	return al_get_bitmap_height(sprite[0]);
 }
 
+bool Brick::isFast() {
+	return fastBall;
+}
+
 short Brick::getPoints() {
 	return points;
 }

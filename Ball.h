@@ -4,20 +4,23 @@
 
 class Ball : public GameObject {
 public:
-	Ball() : GameObject() { ballID = ballIDtoAssign; } // Default constructor
-	Ball(float x, float y, float w, float h) : GameObject(x, y, w, h) { ballID = ballIDtoAssign; } // Conditional constructor
+	Ball() : GameObject() {} // Default constructor
+	Ball(float x, float y, float w, float h) : GameObject(x, y, w, h) {} // Conditional constructor
+	Ball(const Ball& clone); // Copy constructor
 	~Ball(); // Destructor
 	void draw();
 	static float getSpeedCap();
-	short getID();
 	static void setSpeedCap(float set);
+	static bool inSpeedState();
 	static void addToSpeedCap(float add);
+	static void setSpeedState(bool set);
+	static bool isFire(); // Getter for fire
+	static void setFire(bool set); // Setter for fire
 	void checkForSpeedCap();
-	static void setID(short set);
-	static void addToID(short add);
 	void print();
 private:
+	static ALLEGRO_COLOR color;
 	static float speedCap; // Prevents your balls from going too fast
-	static short ballIDtoAssign; // Unique ID codes are passed to each ball to help identify each.
-	short ballID;
+	static bool speedState; // Checks if balls are in fast mode
+	static bool fire;
 };

@@ -12,7 +12,7 @@ public:
 	virtual ~GameObject(); // Destructor
 	virtual void draw() abstract; // Shows the sprite on screen
 	void move(); // Puts the speed variables into action, and shifts objects depending on them
-	static bool isPaused();
+	static bool isPaused(); // Checks to see if the game is paused
 	float getXPos(); // Getters for position, speed and sprite size
 	float getXMiddle(); // Gets the middle of a sprite instead of the left
 	float getRightSide(); // Gets the right side of a sprite
@@ -25,6 +25,8 @@ public:
 	float getYSpeed();
 	static void setPaused(bool set);
 	static void togglePaused();
+	void addToXPos(float add);
+	void addToYPos(float add);
 	void setXPos(float set); // Setters for position, speed and sprite size
 	void setXMiddle(float set); // Set X-position based on the middle, instead of left
 	void setRightSide(float set); // Same with the right side
@@ -49,7 +51,6 @@ protected:
 	float height; // Sprite height
 	float xSpeed; // Horizontal speed
 	float ySpeed; // Vertical speed (inverted)
-	static short numObjects; // A variable for debugging to keep track of used memory
 private:
 	static bool paused; // And they say there's no pause on Atari 2600 games...
 };

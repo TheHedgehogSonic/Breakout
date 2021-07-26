@@ -1,10 +1,8 @@
 #include "GameObject.h"
 
-short GameObject::numObjects = 0;
 bool GameObject::paused = false;
 
 GameObject::GameObject() {
-	numObjects++;
 	this->xPos = 0;
 	this->yPos = 0;
 	this->width = 0;
@@ -14,7 +12,6 @@ GameObject::GameObject() {
 }
 
 GameObject::GameObject(float x, float y, float w, float h) {
-	numObjects++;
 	this->xPos = x;
 	this->yPos = y;
 	this->width = w;
@@ -84,6 +81,14 @@ void GameObject::setPaused(bool set) {
 
 void GameObject::togglePaused() {
 	paused = !paused;
+}
+
+void GameObject::addToXPos(float add) {
+	xPos += add;
+}
+
+void GameObject::addToYPos(float add) {
+	yPos += add;
 }
 
 void GameObject::setXPos(float set) {
